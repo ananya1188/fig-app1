@@ -1,0 +1,14 @@
+{
+"products":[
+{"image":"/images/Homepage ShadeX _Louvers_.png", "alt":"Louvers" ,"title":"LOUVERS","subtitle":"Open & Close The Roof","button":"Learn More"},
+{"image":"/images/Homepage ShadeX section _Solid_.png","alt":"" ,"title":"SOLID","subtitle":"Rigid Insulated Panels","button":"Learn More"},
+{"image":"/images/Homepage ShadeX section _Lattice_.png","alt":"" ,"title":"LATTICE","subtitle":"Traditional but Modern","button":"Learn More"}
+
+],
+"accordions":[
+{"trigger":"Shade Array Pergolas","para":"X out the MIddleman."},
+{"trigger":"ARKA","para":"X out the MIddleman."},
+{"trigger":"Other Options","para":"X out the MIddleman."}
+]
+
+}

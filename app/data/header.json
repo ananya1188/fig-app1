@@ -1,0 +1,9 @@
+{
+    "navbar":[
+{"name":"Home","Link":"/"},
+{"name":"About Us","Link":"/about"},
+{"name":"ShadeX","Link":"/shadeX"},
+{"name":"Contact","Link":"/contact"},
+{"name":"Product","Link":"/product"},
+{"name":"Partner","Link":"/partner"}
+]}

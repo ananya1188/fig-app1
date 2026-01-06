@@ -1,0 +1,10 @@
+{
+"ContactForm":[
+{"LabelName":"Full name","name":"FullName", "placeholder":"Full Name" },
+{"LabelName":"Company Name","name":"CompanyName", "placeholder":"Company Name" },
+{"LabelName":"Email","name":"Email", "placeholder":"m@example.com" },
+{"LabelName":"Phone","name":"Phone", "placeholder":"Phone" },
+{"LabelName":"Shade Type","name":"ShadeType", "placeholder":"Shade Type" },
+{"LabelName":"Address","name":"Address", "placeholder":"Address" }
+]
+}

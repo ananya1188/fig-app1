@@ -1,0 +1,23 @@
+{
+    "OurServices":[
+    {"name":" Louvered Roof System","link":"/"},
+     {"name":"Shade Array Pergola","link":"/"},
+      {"name":"Aluminum Wood","link":"/"},
+       {"name":"Other Options","link":"/"}
+],
+"Shades":[
+ {"name":"Home","link":"/"},
+  {"name":"About Us","link":"/about"},
+   {"name":"Partners","link":"/partners"},
+    {"name":"Brochure","link":"/brochure"},
+     {"name":"Careers","link":"/careers"},
+       {"name":"Blogs","link":"/blogs"},
+         {"name":" Contact Us","link":"/contact"}
+],
+"FollowUs":[
+    {"image":"/images/Link.png","alt":"image"},
+     {"image":"/images/Link (1).png","alt":"image"},
+      {"image":"/images/Link (2).png","alt":"image"},
+       {"image":"/images/Icon (1).png","alt":"image"}
+]
+}
