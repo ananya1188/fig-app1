@@ -15,7 +15,7 @@ const { navbar } = data
 
 export default function Header() {
   return (
-    <header className="bg-img" style={{ backgroundImage: "url('/images/Group 1000003294.png')", height: "100px" }}>
+    <header>
       <div>
         {/* Logo */}
         <div className="logo">

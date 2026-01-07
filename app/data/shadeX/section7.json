@@ -1,0 +1,20 @@
+{
+    "TableColumns":[
+        {"head":"ShadeX"},
+        {"head":"Online Retailers"},
+        {"head":"Box Stores"},
+        {"head":"Luxury Products"}
+        
+    ],
+    "TableRows":[
+        {"text":"Affordable" ,"image1":"/images/check.png","image2":"/images/check.png","image3":"/images/check.png","image4":"/images/multiply.png"},
+        {"text":"Quality" ,"image1":"/images/check.png","image2":"/images/check.png","image3":"/images/multiply.png","image4":"/images/check.png"},
+         {"text":"10-yr Warranty" ,"image1":"/images/check.png","image2":"/images/check.png","image3":"/images/multiply.png","image4":"/images/check.png"},
+          {"text":"Customizations" ,"image1":"/images/check.png","image2":"/images/multiply.png","image3":"/images/multiply.png","image4":"/images/check.png"},
+           {"text":"Innovation" ,"image1":"/images/check.png","image2":"/images/multiply.png","image3":"/images/multiply.png","image4":"/images/multiply.png"},
+            {"text":"Local Support" ,"image1":"/images/check.png","image2":"/images/multiply.png","image3":"/images/multiply.png","image4":"/images/check.png"},
+             {"text":"Dealer-direct" ,"image1":"/images/check.png","image2":"/images/check.png","image3":"/images/multiply.png","image4":"/images/check.png"},
+              {"text":"Showroom" ,"image1":"/images/check.png","image2":"/images/multiply.png","image3":"/images/check.png","image4":"/images/multiply.png"}
+    ]
+    
+}   

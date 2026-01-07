@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Field, FieldGroup, FieldLabel } from "../../components/ui/field";
 import data from "../data/section9.json";
 
 const { ContactForm } = data;
@@ -16,7 +16,7 @@ export default function Section9() {
     const formData = new FormData(e.currentTarget);
     const body = Object.fromEntries(formData.entries());
 
-    const req = await fetch("/api/section9", {
+    const req = await fetch("/api/home", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
