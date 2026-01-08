@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
 import { Field, FieldGroup, FieldLabel } from "../../components/ui/field";
-import data from "../data/section9.json";
+import data from "../data/shadeX/section9.json";
 
 const { ContactForm } = data;
 
