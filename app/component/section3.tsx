@@ -13,7 +13,7 @@ export default function Section3() {
   return (
     <>
     <div>
-      <h6>03</h6>
+      <Image src="/images/Border (1).png" alt="three"width={40} height={40}></Image>
       <h5>product</h5>
       <div>
         <Image src="/images/Frame.png" alt="Frame" width={300} height={200} />

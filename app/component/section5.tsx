@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Section5() {
   return (
     <section>
-      <h6 className="uppercase text-sm mb-2">Testimonials</h6>
+     <Image src="/images/Border (3).png" alt="five" width={40} height={40}></Image>
       <h2 className="text-4xl font-bold mb-10">
         Don't take our word, take theirs
       </h2>

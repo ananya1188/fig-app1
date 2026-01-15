@@ -36,7 +36,7 @@ export default function Section9() {
     <section>
       {/* Top */}
       <div>
-        <h6>09</h6>
+        <Image src="/images/Border (7).png" alt="nine" width={40} height={40}></Image>
       </div>
 
       <h6>Contact Us</h6>

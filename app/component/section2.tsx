@@ -1,8 +1,9 @@
+import Image from "next/image"
 export default function section2(){
     return(
        <>
        <div>
-       <h6>02</h6>
+       <Image src="/images/Border.png" alt="two" width={40} height={40}></Image>
        <h5>ShadeX</h5>
        <div className="text-center">
         <h2 className="text-4xl">X out the MIddleman.</h2>

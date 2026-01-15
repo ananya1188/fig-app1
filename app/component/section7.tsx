@@ -5,7 +5,7 @@ export default function Section7(){
     return(
         <>
         <div>
-        <h6>07</h6>
+       <Image src="/images/Border (5).png" alt="seven" width={40} height={40}></Image>
         <h5>Who we are</h5>
         <div className="text-white">
 <h2>The Model Makes The Difference</h2>

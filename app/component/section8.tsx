@@ -5,7 +5,7 @@ export default function Section8(){
     return(
         <>
         <div>
-            <h6>08</h6>
+           <Image src="/images/Border (6).png" alt="eight" width={40} height={40}></Image>
             <h5>Gallery</h5>
             <div>
             <h2>A Gallery of Our Finest Work</h2>

@@ -8,7 +8,7 @@ export default function ShadeSection2(){
         
             <div className="flex">
         <div>
-<h3 className="text-3xl">Expect More</h3>
+<Image src="/images/Border.png" alt="one"/>
 <p>A complete shade system designed and made in the USA The apex of structural integrity, modern luxury, and affordability. More options, more confidence, more of what you want.</p>
         <Button>Call for a Quote </Button>
         </div>

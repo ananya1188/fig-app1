@@ -6,7 +6,7 @@ export default function section4(){
     return(
         <>
         <div>
- <h6>04</h6>
+<Image src="/images/Border (2).png" alt="four" width={40} height={40}></Image>
  <h5>Why Shade plus</h5>
  <div>
     <h2 className="text-2xl">We are shade structures experts with 25+ years of experience</h2>

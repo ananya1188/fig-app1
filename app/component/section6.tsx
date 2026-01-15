@@ -5,7 +5,7 @@ const {AboutUs}=data;
 export default function Section6(){
     return(
     <>
-    <h6>06</h6>
+    <Image src="/images/Border (4).png" alt="six" width={40} height={40}></Image>
     <h5>About Us</h5>
     <div className="bgImg" style={{backgroundImage:"url('/images/about.png')", height:"600px",width:"1200px"}}>
    
