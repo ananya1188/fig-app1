@@ -48,6 +48,7 @@ export default function Footer(){
 
             </div>
         </div>
+        <p>2024 All Rights Reserved | Copyright © Shade Plus™ | ROC #303744</p>
         </div>
         </>
     )
