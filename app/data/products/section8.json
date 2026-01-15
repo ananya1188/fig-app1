@@ -6,5 +6,10 @@
 {"LabelName":"Phone","name":"Phone", "placeholder":"Phone" },
 {"LabelName":"Shade Type","name":"ShadeType", "placeholder":"Shade Type" },
 {"LabelName":"Address","name":"Address", "placeholder":"Address" }
-]
+],
+  "icon":[
+    {"Image":"/images/material-symbols-light_my-location-outline.png","alt":"Contact Image", "para":"1545 E Yucca St B1, Phoenix, AZ 85020"},
+    {"Image":"/images/64a59c1abf1133aa75c31007_email-icon-architectr-x-webflow-template.svg.png","alt":"Contact Image","para":"info@shadeplus.co"},
+    {"Image":"/images/64a59c1a5275149008cf1224_call-icon-architectr-x-webflow-template.svg.png","alt":"Contact Image","para":"(623) 294-3040"}
+  ]
 }

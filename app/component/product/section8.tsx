@@ -5,8 +5,8 @@ import { Card, CardContent } from "../../../components/ui/card";
 import { Input } from "../../../components/ui/input";
 import { Field, FieldGroup, FieldLabel } from "../../../components/ui/field";
 import data from "../../data/products/section8.json";
-
-const { ContactForm } = data;
+import Image from "next/image";
+const { ContactForm ,icon} = data;
 
 export default function ProductSection8() {
 
@@ -77,6 +77,17 @@ export default function ProductSection8() {
           </CardContent>
         </Card>
       </div>
+      <div>
+                      {icon.map((item, i) => (
+                        <div key={i} className="flex items-center mb-4">
+                          <Image src={item.Image} alt={item.alt} width={40} height={30} />
+                          <p className="ml-4">{item.para}</p>
+                    <p> </p>
+                    </div>
+                   
+                      )) }
+                    
+                  </div>
     </section>
   );
 }
