@@ -4,11 +4,11 @@ import { Button } from "../../../components/ui/button";
 import { Card, CardContent } from "../../../components/ui/card";
 import { Input } from "../../../components/ui/input";
 import { Field, FieldGroup, FieldLabel } from "../../../components/ui/field";
-import data from "../../data/shadeX/section9.json";
+import data from "../../data/about/section10.json";
 
 const { ContactForm } = data;
 
-export default function Section9() {
+export default function GallerySection7() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,7 +16,7 @@ export default function Section9() {
     const formData = new FormData(e.currentTarget);
     const body = Object.fromEntries(formData.entries());
 
-    const req = await fetch("/api/home", {
+    const req = await fetch("/api/gallery", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
