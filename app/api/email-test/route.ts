@@ -24,12 +24,12 @@ export async function POST(request: NextRequest) {
 
     // Create a new Resend instance with your API key
     // This key authenticates your app with the Resend email service
-    const resend = new Resend('re_adYUi2Ue_5K62Xz9aU4qohKYudVcuirZS');
+    const resend = new Resend('re_VuvbR2pV_NPGzhYvGG87Uk7zK42mqaQSL');
 
     // Send the email using Resend's API
     const data = await resend.emails.send({
       from: 'Shadeplus <onboarding@resend.dev>',  // Sender's email address
-      to: ['codermohitweb@gmail.com'],            // Recipient's email address (your verified email)
+      to: ['ananya.strix@gmail.com'],            // Recipient's email address (your verified email)
       subject: `New Contact Form Submission from ${name}`,  // Email subject line with user's name
       // HTML content of the email - formatted with the form data
       html: `

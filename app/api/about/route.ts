@@ -1,58 +1,84 @@
+// Import Next.js server utilities for handling API requests and responses
 import { type NextRequest, NextResponse } from 'next/server'
+// Import Resend library for sending emails
+import { Resend } from 'resend';
 
+// Define the structure of our API response
 type ResponseData = {
-  success: boolean
-  data?: any
-  error?: string
-  details?: string
+  success: boolean  // Indicates if the operation was successful
+  data?: any        // Optional: Contains response data if successful
+  error?: string    // Optional: Contains error message if failed
+  details?: string  // Optional: Contains additional error details
 }
+
+// This is a POST API route handler - it runs on the server when someone submits the form
 export async function POST(request: NextRequest) {
-   // Get API key from environment variables
-  //const SUPABASE_API_KEY = process.env.API || 'sb_publishable_I2IYJd2zj86CS_6tZNkBZQ_NCGt_rv1'
- //console.log(SUPABASE_API_KEY);
-
   try {
-      const body = await request.json(); 
-    // Make the request to Supabase
-    const response = await fetch('https://msijllgzruotalrpujcj.supabase.co/rest/v1/ContactRequests', {
-      method: 'POST',
-      headers: {
-       'Content-Type': 'application/json',
-        'apikey': `sb_publishable_rfsw-RpXcYDHOfJq4eMPEA_6NHDWUsb`,
-        'Authorization': `Bearer sb_publishable_rfsw-RpXcYDHOfJq4eMPEA_6NHDWUsb`,
-      },
-      body: JSON.stringify([body]), 
-    })
+    // Parse the incoming JSON data from the request body
+    const body = await request.json();
+    // Extract the form fields (name, email, phone, message) from the body
+    const { FullName, CompanyName, Email, Phone, ShadeType, Address, Message } = body;
 
-    // Check if the request was successful
-    if (!response.ok) {
-      const errorText = await response.text()
+    // Log the received data to the console for debugging purposes
+    console.log('Received form data:', { FullName, CompanyName, Email, Phone, ShadeType, Address, Message });
+
+    // Create a new Resend instance with your API key
+    // This key authenticates your app with the Resend email service
+    const resend = new Resend('re_VuvbR2pV_NPGzhYvGG87Uk7zK42mqaQSL');
+
+    // Send the email using Resend's API
+    const data = await resend.emails.send({
+      from: 'Shadeplus <onboarding@resend.dev>',  // Sender's email address
+      to: ['ananya.strix@gmail.com'],            // Recipient's email address (your verified email)
+      subject: `New Contact Form Submission from ${FullName}`,  // Email subject line with user's name
+      // HTML content of the email - formatted with the form data
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>FullName:</strong> ${FullName}</p>
+        <p><strong>CompanyName:</strong> ${CompanyName}</p>
+        <p><strong>Email:</strong> ${Email}</p>
+        <p><strong>Phone:</strong> ${Phone}</p>
+        <p><strong>ShadeType:</strong> ${ShadeType}</p>
+        <p><strong>Address:</strong> ${Address}</p>
+        <p><strong>Message:</strong></p>
+        <p>${Message}</p>
+      `,
+    });
+
+    // Log the response from Resend API to see if it was successful
+    console.log('Resend API response:', data);
+
+    // Check if Resend returned an error (even if HTTP request was successful)
+    if (data.error) {
+      // Log the error for debugging
+      console.error('Resend API error:', data.error);
+      // Return an error response to the frontend with status 400 (Bad Request)
       return NextResponse.json(
         {
           success: false,
-          error: `Request failed: ${response.status} ${response.statusText}`,
-          details: errorText,
+          error: data.error.message || 'Failed to send email',  // Error message
+          details: data.error,  // Full error details
         },
-        { status: response.status }
+        { status: 400 }  // HTTP status code
       )
     }
 
-    // Parse the response
-    const result = await response.json()
-
-    // Return the result
+    // If everything worked, return a success response to the frontend
     return NextResponse.json({
       success: true,
-      data: result,
+      data: data,  // Include the Resend response data
     })
   } catch (error) {
-    // Handle any errors
+    // This catch block handles any unexpected errors (network issues, JSON parsing errors, etc.)
+    console.error('Error sending email:', error);
+    // Return an error response with status 500 (Internal Server Error)
     return NextResponse.json(
       {
         success: false,
+        // Check if error is an Error object, otherwise use a generic message
         error: error instanceof Error ? error.message : 'Unknown error occurred',
       },
-      { status: 500 }
+      { status: 500 }  // HTTP status code for server errors
     )
   }
 }

@@ -1,36 +1,77 @@
-"use client";
+ // This tells Next.js that this component runs on the client side (in the browser)
+  "use client";
 
-import { Button } from "../../components/ui/button";
-import { Card, CardContent } from "../../components/ui/card";
-import { Input } from "../../components/ui/input";
-import { Field, FieldGroup, FieldLabel } from "../../components/ui/field";
+  // Import UI components from our component library
+  import { Button } from "../../components/ui/button";
+  import { Card, CardContent } from "../../components/ui/card";
+  import { Input } from "../../components/ui/input";
+  import { Field, FieldGroup, FieldLabel } from "../../components/ui/field";
+  // Import React's useState hook to manage component state
+  import { useState } from "react";
 import data from "../data/section9.json";
 import Image from "next/image";
-const { ContactForm,icon } = data;
+const { ContactForm, icon } = data;
+  // Main component for the email test page
+  export default function Section9() {
+    // Create a state variable to track if the form is currently being submitted
+    // isSubmitting = current value, setIsSubmitting = function to update it
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-export default function Section9() {
+    // This function handles the form submission
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+      // Prevent the default form submission behavior (which would reload the page)
+      e.preventDefault();
+      // Set isSubmitting to true to disable the button and show "Sending..." text
+      setIsSubmitting(true);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+      // Store a reference to the form element before any async operations
+      // This is important because e.currentTarget becomes null after async calls
+      const form = e.currentTarget;
+      // Create a FormData object from the form to easily extract all field values
+      const formData = new FormData(form);
+      // Convert FormData to a plain JavaScript object for easier handling
+      const body = Object.fromEntries(formData.entries());
 
-    const formData = new FormData(e.currentTarget);
-    const body = Object.fromEntries(formData.entries());
+      try {
+        // Send a POST request to our API route with the form data
+        const res = await fetch("/api/home", {
+          method: "POST",  // HTTP method
+          headers: { "Content-Type": "application/json" },  // Tell server we're sending JSON
+          body: JSON.stringify(body),  // Convert the object to a JSON string
+        });
 
-    const req = await fetch("/api/home", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
+        // Check if the HTTP response was not successful (status code 200-299)
+        if (!res.ok) {
+          // Throw an error to jump to the catch block
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
 
-    const result = await req.json();
+        // Parse the JSON response from the API
+        const result = await res.json();
+        // Log the response to the browser console for debugging
+        console.log("API Response:", result);
 
-    if (result.success) {
-      alert("Message sent successfully");
-      e.currentTarget.reset();
-    } else {
-      alert("Something went wrong");
+        // Check if the API returned a success status
+        if (result.success) {
+          // Show a success message to the user
+          alert("Email sent successfully!");
+          // Clear all form fields after successful submission
+          form.reset();
+        } else {
+          // Show an error message with details from the API
+          alert("Failed to send email: " + (result.error || "Unknown error"));
+        }
+      } catch (error) {
+        // This block runs if there was any error (network error, server error, etc.)
+        alert("An error occurred while sending the email");
+        // Log the error to the console for debugging
+        console.error(error);
+      } finally {
+        // This block always runs, whether there was an error or not
+        // Set isSubmitting back to false to re-enable the submit button
+        setIsSubmitting(false);
+      }
     }
-  }
 
   return (
     <section>
