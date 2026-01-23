@@ -8,7 +8,9 @@
   import { Field, FieldGroup, FieldLabel } from "../../components/ui/field";
   // Import React's useState hook to manage component state
   import { useState } from "react";
-
+import data from "../data/email-test/section9.json";
+import Image from "next/image";
+const { ContactForm, icon } = data;
   // Main component for the email test page
   export default function EmailTestPage() {
     // Create a state variable to track if the form is currently being submitted
@@ -87,67 +89,62 @@
             </p>
 
             {/* Form element - when submitted, it calls handleSubmit function */}
-            <form onSubmit={handleSubmit}>
-              {/* FieldGroup wraps all form fields with spacing */}
-              <FieldGroup className="space-y-4">
-                
-                {/* Name input field */}
-                <Field>
-                  <FieldLabel>Name</FieldLabel>
-                  <Input 
-                    name="name"  // This name is used to identify the field in form data
-                    placeholder="Enter your name"  // Placeholder text shown in empty field
-                    required  // Makes this field mandatory
-                  />
-                </Field>
-
-                {/* Email input field */}
-                <Field>
-                  <FieldLabel>Email</FieldLabel>
-                  <Input 
-                    name="email"  // Field name for form data
-                    type="email"  // Input type for email validation
-                    placeholder="Enter your email"  // Placeholder text
-                    required  // Makes this field mandatory
-                  />
-                </Field>
-
-                {/* Phone input field */}
-                <Field>
-                  <FieldLabel>Phone</FieldLabel>
-                  <Input 
-                    name="phone"  // Field name for form data
-                    type="tel"  // Input type for telephone numbers
-                    placeholder="Enter your phone number"  // Placeholder text
-                    required  // Makes this field mandatory
-                  />
-                </Field>
-
-                {/* Message textarea field */}
-                <Field>
-                  <FieldLabel>Message</FieldLabel>
-                  <textarea 
-                    name="message"  // Field name for form data
-                    rows={6}  // Number of visible text rows
-                    className="w-full border rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary"  // Styling classes
-                    placeholder="Enter your message"  // Placeholder text
-                    required  // Makes this field mandatory
-                  />
-                </Field>
-
-                {/* Submit button container */}
-                <div className="pt-4">
-                  <Button 
-                    type="submit"  // Makes this button submit the form
-                    className="w-full"  // Full width button
-                    disabled={isSubmitting}  // Disable button while form is submitting
-                  >
-                    {/* Show "Sending..." when submitting, otherwise show "Send Email" */}
-                    {isSubmitting ? "Sending..." : "Send Email"}
-                  </Button>
+           <section>
+                {/* Top */}
+                <div>
+                  <Image src="/images/Border (7).png" alt="nine" width={40} height={40}></Image>
                 </div>
-              </FieldGroup>
-            </form>
+          
+                <h6>Contact Us</h6>
+          
+                <h2>
+                  Need info or a quote? Call or fill out the form.
+                </h2>
+          
+                <div className="flex justify-center">
+                  <Card className="w-120">
+                    <CardContent className="p-8">
+                      <form onSubmit={handleSubmit}>
+                        <FieldGroup className="flex flex-wrap gap-6">
+          
+                          <Field>
+                            {ContactForm.map((form, i) => (
+                              <div key={i}>
+                                <FieldLabel>{form.LabelName}</FieldLabel>
+                                <Input name={form.name} placeholder={form.placeholder}
+                                />
+                              </div>
+                            ))}
+                          </Field>
+          
+                          {/* Message */}
+                          <Field className="w-full">
+                            <FieldLabel>Message</FieldLabel>
+                            <textarea  name="message"  rows={4}  className="w-full border p-2"  placeholder="Your message" />
+                          </Field>
+          
+                          {/* Button */}
+                          <div className="w-full mt-4">
+                            <Button type="submit">Send Message</Button>
+                          </div>
+          
+                        </FieldGroup>
+                      </form>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div>
+                                {icon.map((item, i) => (
+                                  <div key={i} className="flex items-center mb-4">
+                                    <Image src={item.Image} alt={item.alt} width={40} height={30} />
+                                    <p className="ml-4">{item.para}</p>
+                              <p> </p>
+                              </div>
+                             
+                                )) }
+                              
+                            </div>
+              </section>
           </CardContent>
         </Card>
       </div>

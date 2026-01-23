@@ -9,7 +9,7 @@ import Section5 from "./component/section5"
 import Section6 from "./component/section6"
 import Section7 from "./component/section7"
 import Section8 from "./component/section8"
-import Section9 from "./component/section9"
+import EmailTestPage from "../app/email-test/page"
 export default function Home(){
   return(
     <>
@@ -22,7 +22,7 @@ export default function Home(){
     <Section6/>
     <Section7/>
     <Section8/>
-    <Section9/>
+    <EmailTestPage/>
     <Section10/>
     <Footer/>
     </>

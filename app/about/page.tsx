@@ -8,7 +8,7 @@ import AboutSection6 from "../component/about/section6"
 import AboutSection7 from "../component/about/section7"
 import AboutSection8 from "../component/about/section8"
 import AboutSection9 from "../component/about/section9"
-import AboutSection10 from "../component/about/section10"
+import EmailTestPage from "../email-test/page"
 import Footer from "../component/footer"
 export default function AboutSections(){
     return(
@@ -23,7 +23,7 @@ export default function AboutSections(){
           <AboutSection7/>
            <AboutSection8/>
            <AboutSection9/>
-           <AboutSection10/>
+           <EmailTestPage/>
            <Footer/>
         </>
     )

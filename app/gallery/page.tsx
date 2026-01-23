@@ -6,7 +6,7 @@ import GallerySection3 from "../component/gallery/section3"
 import GallerySection4 from "../component/gallery/section4"
 import GallerySection5 from "../component/gallery/section5"
 import GallerySection6 from "../component/gallery/section6"
-import GallerySection7 from "../component/gallery/section7"
+import EmailTestPage from "../email-test/page"
 export default function GallerySections(){
     return(
         <>
@@ -17,7 +17,7 @@ export default function GallerySections(){
         <GallerySection4/>
          <GallerySection5/>
           <GallerySection6/>
-           <GallerySection7/>
+           <EmailTestPage/>
            <Footer/>
         </>
     )

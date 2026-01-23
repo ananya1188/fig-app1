@@ -7,7 +7,7 @@ import ShadeSection5 from "../component/shadeX/section5"
 import ShadeSection6 from "../component/shadeX/section6"
 import ShadeSection7 from "../component/shadeX/section7"
 import ShadeSection8 from "../component/shadeX/section8"
-import ShadeSection9 from "../component/shadeX/section9"
+import EmailTestPage from "../email-test/page"
 import Footer from "../component/footer"
 export default function ShadeSections(){
     return(
@@ -21,7 +21,7 @@ export default function ShadeSections(){
          <ShadeSection6/>
           <ShadeSection7/>
           <ShadeSection8/>
-           <ShadeSection9/>
+          <EmailTestPage/>
           <Footer/>
         </>
     )

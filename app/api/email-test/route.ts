@@ -16,11 +16,11 @@ export async function POST(request: NextRequest) {
   try {
     // Parse the incoming JSON data from the request body
     const body = await request.json();
-    // Extract the form fields (name, email, phone, message) from the body
-    const { name, email, phone, message } = body;
+    // Extract the form fields (FullName, CompanyName, Email, Phone, ShadeType, Address, Message) from the body
+    const { FullName, CompanyName, Email, Phone, ShadeType, Address, Message } = body;
 
     // Log the received data to the console for debugging purposes
-    console.log('Received form data:', { name, email, phone, message });
+    console.log('Received form data:', { FullName, CompanyName, Email, Phone, ShadeType, Address, Message });
 
     // Create a new Resend instance with your API key
     // This key authenticates your app with the Resend email service
@@ -30,15 +30,53 @@ export async function POST(request: NextRequest) {
     const data = await resend.emails.send({
       from: 'Shadeplus <onboarding@resend.dev>',  // Sender's email address
       to: ['ananya.strix@gmail.com'],            // Recipient's email address (your verified email)
-      subject: `New Contact Form Submission from ${name}`,  // Email subject line with user's name
+      subject: `New Contact Form Submission from ${FullName}`,  // Email subject line with user's name
       // HTML content of the email - formatted with the form data
-      html: `
+         html: `
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Email Template</title>
+</head>
+<body>
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table class="content" width="600" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: 1px solid #cccccc;">
+                    <!-- Header -->
+                    <tr>
+                        <td class="header" style="background-color: #345C72; padding: 40px; text-align: center; color: white; font-size: 24px;">
+                        Responsive Email Template
+                        </td>
+                    </tr>
+                    
+                    <!-- Body -->
+                    <tr>
+                        <td class="body" style="padding: 40px; font-size: 16px; line-height: 1.5; color: #333333;">
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>FullName:</strong> ${FullName}</p>
+        <p><strong>CompanyName:</strong> ${CompanyName}</p>
+        <p><strong>Email:</strong> ${Email}</p>
+        <p><strong>Phone:</strong> ${Phone}</p>
+        <p><strong>ShadeType:</strong> ${ShadeType}</p>
+        <p><strong>Address:</strong> ${Address}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <p>${Message}</p>
+                        </td>
+                    </tr>
+        <tr>
+           <td class="footer" style="background-color: #333333; padding: 40px; text-align: center; color: white; font-size: 14px;">
+                        Copyright &copy; 2024 | Your brand name
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
       `,
     });
 

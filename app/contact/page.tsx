@@ -1,5 +1,5 @@
 import ContactSection from "../component/contact/section"
-import ContactSection2 from "../component/contact/section2"
+import EmailTestPage from "../email-test/page"
 import ContactSection3 from "../component/contact/section3"
 import ContactSection4 from "../component/contact/section4"
 import Footer from "../component/footer"
@@ -10,7 +10,7 @@ export default function ContactSections(){
         <>
         <Header/>
       <ContactSection/>
-      <ContactSection2/>
+      <EmailTestPage/>
       <ContactSection3/>
       <ContactSection4/>
       <Footer/>
