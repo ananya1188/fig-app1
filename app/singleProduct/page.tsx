@@ -6,7 +6,7 @@ import SingleProductSection3 from "../component/singleProduct/section3"
 import SingleProductSection4 from "../component/singleProduct/section4"
 import SingleProductSection5 from "../component/singleProduct/section5"
 import SingleProductSection6 from "../component/singleProduct/section6"
-import Section9 from "../component/section9"
+import EmailTestPage from "../email-test/page"
 
 export default function SingleProductSections(){
     return(
@@ -18,7 +18,7 @@ export default function SingleProductSections(){
          <SingleProductSection4/>
          <SingleProductSection5/>
          <SingleProductSection6/>
-       <Section9/>
+       <EmailTestPage/>
          <Footer/>
         </>
     )
