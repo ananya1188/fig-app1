@@ -27,6 +27,7 @@ export default function BlogDetailPage() {
     try {
       const res = await fetch(`/api/blogs/${id}`)
       const data = await res.json()
+      console.log('API response:', data) // debug
 
       if (data.success) {
         setBlog(data.data)
@@ -39,11 +40,27 @@ export default function BlogDetailPage() {
   }
 
   if (loading) {
-    return <p className="text-center py-20">Loading...</p>
+    return (
+      <>
+        <Header />
+        <div className="text-center py-20">
+          <p className="text-gray-600">Loading...</p>
+        </div>
+        <Footer />
+      </>
+    )
   }
 
   if (!blog) {
-    return <p className="text-center py-20">Blog not found</p>
+    return (
+      <>
+        <Header />
+        <div className="text-center py-20">
+          <p className="text-gray-600">Blog not found</p>
+        </div>
+        <Footer />
+      </>
+    )
   }
 
   return (
@@ -51,6 +68,7 @@ export default function BlogDetailPage() {
       <Header />
 
       <div className="max-w-4xl mx-auto py-12 px-4">
+        {/* Blog Image */}
         {blog.image_url && (
           <img
             src={blog.image_url}
@@ -59,18 +77,28 @@ export default function BlogDetailPage() {
           />
         )}
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          {blog.title}
-        </h1>
+        {/* Title */}
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">{blog.title}</h1>
 
+        {/* Author & Date */}
         <div className="text-gray-500 mb-6">
-          By {blog.author} .{' '}
-          {new Date(blog.created_at).toLocaleDateString()}
+          <span>By {blog.author}</span>
+          {' • '}
+          <span>
+            {new Date(blog.created_at).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </span>
         </div>
 
-        <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-          {blog.content}
-        </p>
+        {/* Content */}
+        <div className="prose max-w-none">
+          <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">
+            {blog.content}
+          </p>
+        </div>
       </div>
 
       <Footer />

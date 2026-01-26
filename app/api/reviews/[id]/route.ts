@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params
     const response = await fetch(
-      `https://msijllgzruotalrpujcj.supabase.co/rest/v1/Blogs?id=eq.${id}&select=*`,
+      `https://msijllgzruotalrpujcj.supabase.co/rest/v1/Reviews?id=eq.${id}&select=*`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export async function GET(
 
     if (!response.ok) {
       return NextResponse.json(
-        { success: false, message: 'Failed to fetch blog' },
+        { success: false, message: 'Failed to fetch reviews' },
         { status: response.status }
       )
     }
@@ -30,7 +30,7 @@ export async function GET(
     // Supabase array return karta hai
     if (!result || result.length === 0) {
       return NextResponse.json(
-        { success: false, message: 'Blog not found' },
+        { success: false, message: 'Reviews not found' },
         { status: 404 }
       )
     }

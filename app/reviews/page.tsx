@@ -83,7 +83,7 @@
                         </span>
                       </div>
                       <a
-                        href={`/news/${review.id}`}
+                        href={`/reviews/${review.id}`}
                         className="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium"
                       >
                         Read More →
